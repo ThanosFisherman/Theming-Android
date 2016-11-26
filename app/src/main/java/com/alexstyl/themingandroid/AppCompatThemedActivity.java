@@ -3,6 +3,7 @@ package com.alexstyl.themingandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -39,9 +40,10 @@ public class AppCompatThemedActivity extends AppCompatActivity {
 
     private void restartActivity() {
         final Intent intent = getIntent();
-        intent.removeCategory(Intent.CATEGORY_LAUNCHER);
-        finish();
+        //intent.removeCategory(Intent.CATEGORY_LAUNCHER);
+        intent.setFlags(IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
     }
 
 }
